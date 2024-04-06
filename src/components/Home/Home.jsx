@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom"
+import {Home_com} from "../Home_com.jsx"
 
 export const Home = () => {
   return (
@@ -26,36 +27,9 @@ export const Home = () => {
 </section>
 
 <section>
-<div className="min-h-screen flex items-center justify-left bg-blue-900 ">
-      <div className="text-left pl-20 pb-96">
-        <h1 className="text-7xl font-bold">Want Sound Seed Updates</h1>
-        <h1 className="text-6xl font-bold">sent straight to your inbox?</h1>
-        {/* <p className="mt-4 text-lg">Content goes here...</p> */}
-      </div>
-
-      {/* <div> */}
-      <div className="flex w-full items-center space-x-2 md:w-1/3">
-  <input
-    className="flex h-10 w-full rounded-md border border-black/30 bg-white px-3 py-2 text-sm placeholder:text-white-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-    type="email"
-    placeholder="Email"
-  />
-  <button
-    type="button"
-    className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-  >
-    Subscribe
-  </button>
-{/* </div> */}
-
-      </div>
-
-      
-    </div>
-
-
-
+  <Home_com />
 </section>
+
 
 
 
@@ -63,4 +37,3 @@ export const Home = () => {
     </>
   )
 }
-
