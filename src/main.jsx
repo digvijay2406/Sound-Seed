@@ -12,6 +12,7 @@ import './index.css';
   import { About } from './About';
   import { Contact } from './components/Contact/Contact';
   import { Service } from './components/Service/Service';
+  import { Artist } from './components/Artist';
 
 const root = document.getElementById('root');
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route path='about' element={<About/>}/>
       <Route path='service' element={<Service/>}/>
       <Route path='contact' element={<Contact/>}/>
+      <Route path='artist' element={<Artist/>}/>
     </Route>
   )
 )

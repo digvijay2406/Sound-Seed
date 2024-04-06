@@ -1,34 +1,63 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
+
 
 const menuItems = [
   {
-    name: 'Home',
-    to: '/',
+    name: "Home",
+    to: "/",
   },
   {
-    name: 'About',
-    to: '/about',
+    name: "About",
+    to: "/about",
   },
   {
-    name: 'Contact',
-    to: '/contact',
+    name: "Contact",
+    to: "/contact",
   },
   {
-    name: 'Service',
-    to: '/service',
+    name: "Service",
+    to: "/service",
+  },
+  {
+    name: "Artist",
+    to: "/artist",
   }
-]
+];
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+
+  const [connected, setconnected] = useState(false);
+const [connectedAccount, setConnectedAccount] = useState("");
+const [id, setId] = useState(null);
+
+const connectMetamask = async () => {
+  if (typeof window !== "undefined" && window.ethereum) {
+    try {
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+      const web3 = new Web3(window.ethereum);
+      const accounts = await web3.eth.getAccounts();
+      setconnected(true);
+      setConnectedAccount(accounts[0]);
+      const displayAddress = accounts[0]?.substr(0, 7) + "...";
+      setId(displayAddress);
+    } catch (error) {
+      console.error("Error connecting Metamask:", error);
+    }
+  } else {
+    alert("Please download Metamask");
+  }
+};
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className="relative w-full bg-white">
@@ -61,27 +90,39 @@ export function Navbar() {
                   {item.name}
                   {/* <span>
                     <ChevronDown className="ml-2 h-4 w-4" />
-                  </span> */}  {/*This adds arrow to all the home about contact and services words*/}
+                  </span> */}{" "}
+                  {/*This adds arrow to all the home about contact and services words*/}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
         <div className="hidden space-x-2 lg:block">
-          <button
+          {/* <button
             type="button"
             className="rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
-            Sign In
-          </button>
-          <button
-            type="button"
-            className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Log In
-          </button>
+            Connect
+          </button> */}
+
+{
+  connected ? (
+    <button className="black_btn" onClick={connectMetamask}>
+      {id}
+    </button>
+  ) : (
+    <button
+                    type="button"
+                    className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black" 
+                    onClick={connectMetamask}
+                  >
+      Connect to Metamask 
+    </button>
+  )
+}
         </div>
-        <div className="lg:hidden">
+
+        {/*<div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
         </div>
         {isMenuOpen && (
@@ -152,10 +193,10 @@ export function Navbar() {
               </div>
             </div>
           </div>
-        )}
+        )}*/}
       </div>
     </div>
-  )
+  );
 }
 
 export default Navbar;
