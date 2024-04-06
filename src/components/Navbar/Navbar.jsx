@@ -24,6 +24,10 @@ const menuItems = [
     name: "Service",
     to: "/service",
   },
+  {
+    name: "Artist",
+    to: "/artist",
+  }
 ];
 
 export function Navbar() {
@@ -109,7 +113,7 @@ const connectMetamask = async () => {
   ) : (
     <button
                     type="button"
-                    className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black" 
+                    className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black" 
                     onClick={connectMetamask}
                   >
       Connect to Metamask 
