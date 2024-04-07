@@ -3,10 +3,10 @@ import React from 'react';
 export const Home_com = () => {
   return (
     <section>
-      <div className="min-h-screen flex items-center justify-left bg-blue-900 relative">
+      <div className="min-h-screen flex items-center justify-left dark:bg-gray-900 relative">
         <div className="text-left pl-20 pb-96 relative">
-          <h1 className="text-6xl font-bold">Want Sound Seed Updates</h1>
-          <h1 className="text-5xl font-bold">sent straight to your inbox?</h1>
+          <h1 className="text-6xl font-bold  text-white">Want Sound Seed Updates</h1>
+          <h1 className="text-5xl font-bold  text-white">sent straight to your inbox?</h1>
         </div>
 
       <div></div>

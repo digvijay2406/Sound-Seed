@@ -26,8 +26,8 @@ export function Contact() {
             Love to hear from you
           </p>
           <p className="mx-auto max-w-4xl text-center text-base text-slate-600 md:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veritatis voluptates
-            neque itaque repudiandae sint, explicabo assumenda quam ratione placeat?
+            {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore veritatis voluptates
+            neque itaque repudiandae sint, explicabo assumenda quam ratione placeat? */}
           </p>
         </div>
         <div className="mx-auto max-w-7xl py-12 md:py-24">
