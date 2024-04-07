@@ -9,7 +9,7 @@ import './index.css';
   // import { Home, Layout, About, Contact, Service} from 'lucide-react';
   import { Home } from './components/Home/Home';
   import { Layout } from './components/Layout';
-  import { About } from './About';
+  // import { About } from './About';
   import { Contact } from './components/Contact/Contact';
   import { Service } from './components/Service/Service';
   import { Artist } from './components/Artist';
@@ -20,7 +20,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
       <Route path='' element={<Home/>}/>
-      <Route path='about' element={<About/>}/>
+      {/* <Route path='about' element={<About/>}/> */}
       <Route path='service' element={<Service/>}/>
       <Route path='contact' element={<Contact/>}/>
       <Route path='artist' element={<Artist/>}/>

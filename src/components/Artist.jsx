@@ -68,10 +68,10 @@ export const Artist = () => {
   };
 
   return (
-    <div className="relative w-full bg-white">
+    <div className="relative w-full dark:bg-gray-900">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         <div className="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
-          <h1 className="mt-8 text-3xl font-bold tracking-tight text-black md:text-4xl lg:text-6xl">
+          <h1 className="mt-8 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-6xl">
             Join Our Artistic Community
           </h1>
           <p className="mt-8 text-lg text-gray-700">
@@ -80,7 +80,7 @@ export const Artist = () => {
           <form action="" className="mt-8 flex items-start space-x-2">
             <div>
               <input
-                className="flex w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex w-full rounded-md border border-black/30 bg-slate-300 px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                 type="email"
                 placeholder="Enter your name"
                 id="email"
@@ -100,10 +100,11 @@ export const Artist = () => {
           {showAddSong && (
             <>
               <form action="#" method="POST" className="mt-8">
-                <div className="space-y-5">
-                  <div>
+                <div className="space-y-5 ">
+                  <div >
                     <input
                       type="text"
+                      className="bg-slate-300"
                       placeholder="Song Name"
                       value={songName}
                       onChange={(e) => setSongName(e.target.value)}
@@ -113,6 +114,7 @@ export const Artist = () => {
                     <input
                       type="text"
                       placeholder="Genre"
+                      className="bg-slate-300"
                       value={genre}
                       onChange={(e) => setGenre(e.target.value)}
                     />
@@ -120,6 +122,7 @@ export const Artist = () => {
                   <div>
                     <input
                       type="text"
+                      className="bg-slate-300"
                       placeholder="Release Date"
                       value={releaseDate}
                       onChange={(e) => setReleaseDate(e.target.value)}
@@ -128,6 +131,7 @@ export const Artist = () => {
                   <div>
                     <input
                       type="text"
+                      className="bg-slate-300"
                       placeholder="Total Tokens"
                       value={totalTokens}
                       onChange={(e) => setTotalTokens(e.target.value)}
@@ -136,6 +140,7 @@ export const Artist = () => {
                   <div>
                     <input
                       type="text"
+                      className="bg-slate-300"
                       placeholder="Price per Token"
                       value={pricePerToken}
                       onChange={(e) => setPricePerToken(e.target.value)}
@@ -144,13 +149,14 @@ export const Artist = () => {
                   <div>
                     <input
                       type="text"
+                      className="bg-slate-300"
                       placeholder="Revenue Share Duration"
                       value={revenueShareDuration}
                       onChange={(e) => setRevenueShareDuration(e.target.value)}
                     />
                   </div>
                   <div>
-                    <button
+                    <button className="bg-slate-300"i
                       type="button"
                       onClick={handleAddSong}
                     >
@@ -161,7 +167,7 @@ export const Artist = () => {
               </form>
             </>
           )}
-        </div>
+        {/* </div>
         <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6">
           <img
             className="aspect-[3/2] bg-gray-50 object-cover lg:aspect-[4/3] lg:h-[700px] xl:aspect-[16/9]"
@@ -169,7 +175,17 @@ export const Artist = () => {
             alt=""
           />
         </div>
+      </div> */}
+
       </div>
+        <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6 pt-10">
+          <video className="aspect-[3/2] bg-gray-50 object-cover lg:aspect-[4/3] lg:h-[700px] xl:aspect-[16/9]" autoPlay muted loop>
+            <source src="\gifs\bg_video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
     </div>
   );
 };
