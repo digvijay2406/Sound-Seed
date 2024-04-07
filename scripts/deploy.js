@@ -1,24 +1,22 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
-// will compile your contracts, add the Hardhat Runtime Environment's members to the
-// global scope, and execute the script.
-import hre from "hardhat";
+// Calucator deployed to: 0x065ffbA56bec9cd6A45B6451754cD615760320ba
+// contract2 deployed to: 0xe8EF684feBe1eF7a50355816C1c2954Fe458859D
 
-const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-const unlockTime = currentTimestampInSeconds + 60;
+const { ethers } = require("hardhat");
 
-const lockedAmount = hre.ethers.parseEther("0.001");
+async function main() {
+  const Calucator = await ethers.deployContract("SongToken");
+  await Calucator.waitForDeployment();
 
-const lock = await ethers.deployContract("Lock", [unlockTime], {
-  value: lockedAmount,
-});
+  console.log("Calucator deployed to:", await Calucator.getAddress());
 
-await lock.waitForDeployment();
+  const contract2 = await ethers.deployContract("Music");
+  await contract2.waitForDeployment();
+  console.log("contract2 deployed to:", await contract2.getAddress());
+}
 
-console.log(
-  `Lock with ${ethers.formatEther(
-    lockedAmount
-  )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-);
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
